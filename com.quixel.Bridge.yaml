@@ -31,8 +31,8 @@ modules:
       - type: extra-data
         filename: Bridge.AppImage
         url: https://d2shgxa8i058x8.cloudfront.net/bridge/linux/Bridge.AppImage
-        sha256: 8a6547fbfc004c6bde33a1b1bc3647ea986a75555651a3fd6dc73d9d751c9e85
-        size: 75333421
+        sha256: 66c091f2373ecabd327e49369fb289ab59ffcae83f169786e592204ad25382e9
+        size: 196693650
       - type: script
         dest-filename: apply_extra
         commands:
