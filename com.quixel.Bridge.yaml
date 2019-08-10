@@ -15,7 +15,16 @@ finish-args:
   - --share=network
   - --filesystem=xdg-documents
 modules:
-  - name: Quixel-Bridge
+  - name: unappimage
+    buildsystem: simple
+    build-commands:
+      - make -C squashfs-tools -j ${FLATPAK_BUILDER_N_JOBS} install INSTALL_DIR=${FLATPAK_DEST}/bin
+    sources:
+      - type: git
+        url: https://github.com/refi64/unappimage
+        commit: d7f86f2a0d7ec3a69211125207d5f127386b849a
+
+  - name: quixel-bridge
     buildsystem: simple
     build-commands:
       - install -D apply_extra "${FLATPAK_DEST}/bin/apply_extra"
@@ -24,20 +33,22 @@ modules:
       - for s in {16,24,32,48,64,96,128,256,512}; do
         install -p -Dm644 "icon${s}.png" "${FLATPAK_DEST}/share/icons/hicolor/${s}x${s}/apps/${FLATPAK_ID}.png";
         done;
-
       - install -Dm644 com.quixel.Bridge.desktop "${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop"
       - install -Dm644 com.quixel.Bridge.appdata.xml "${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.appdata.xml"
     sources:
       - type: extra-data
         filename: Bridge.AppImage
         url: https://d2shgxa8i058x8.cloudfront.net/bridge/linux/Bridge.AppImage
-        sha256: 66c091f2373ecabd327e49369fb289ab59ffcae83f169786e592204ad25382e9
-        size: 196693650
+        sha256: 98861341923039da5c90c7a7a155e79916c391e348ae5d8790f11579bf90d05f
+        size: 204716115
+        x-checker-data:
+          type: rotating-url
+          url: https://d2shgxa8i058x8.cloudfront.net/bridge/linux/Bridge.AppImage
       - type: script
         dest-filename: apply_extra
         commands:
           - chmod +x Bridge.AppImage
-          - ./Bridge.AppImage --appimage-extract
+          - unappimage Bridge.AppImage
           - rm Bridge.AppImage
           - mv squashfs-root bridge
       - type: script
