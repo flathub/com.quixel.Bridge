@@ -1,8 +1,8 @@
 app-id: com.quixel.Bridge
-base: io.atom.electron.BaseApp
-base-version: "18.08"
+base: org.electronjs.Electron2.BaseApp
+base-version: '19.08'
 runtime: org.freedesktop.Platform
-runtime-version: "18.08"
+runtime-version: '19.08'
 sdk: org.freedesktop.Sdk
 command: bridge
 tags:
@@ -30,17 +30,16 @@ modules:
       - install -D apply_extra "${FLATPAK_DEST}/bin/apply_extra"
       - install bridge "${FLATPAK_DEST}/bin/"
     post-install:
-      - for s in {16,24,32,48,64,96,128,256,512}; do
-        install -p -Dm644 "icon${s}.png" "${FLATPAK_DEST}/share/icons/hicolor/${s}x${s}/apps/${FLATPAK_ID}.png";
-        done;
+      - for s in {16,24,32,48,64,96,128,256,512}; do install -p -Dm644 "icon${s}.png"
+        "${FLATPAK_DEST}/share/icons/hicolor/${s}x${s}/apps/${FLATPAK_ID}.png"; done;
       - install -Dm644 com.quixel.Bridge.desktop "${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop"
       - install -Dm644 com.quixel.Bridge.appdata.xml "${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.appdata.xml"
     sources:
       - type: extra-data
         filename: Bridge.AppImage
         url: https://d2shgxa8i058x8.cloudfront.net/bridge/linux/Bridge.AppImage
-        sha256: 98861341923039da5c90c7a7a155e79916c391e348ae5d8790f11579bf90d05f
-        size: 204716115
+        sha256: ffc3b3dd51caf0044b06eb5fd5633b0ebe104d3f7035e0c42ecd766a01e3e3be
+        size: 204715997
         x-checker-data:
           type: rotating-url
           url: https://d2shgxa8i058x8.cloudfront.net/bridge/linux/Bridge.AppImage
