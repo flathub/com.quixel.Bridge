@@ -53,7 +53,7 @@ modules:
       - type: script
         dest-filename: bridge
         commands:
-          - exec /app/extra/bridge/megascans-bridge "$@"
+          - zypak-wrapper /app/extra/bridge/megascans-bridge "$@"
       - type: file
         path: com.quixel.Bridge.appdata.xml
       - type: file
