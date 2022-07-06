@@ -15,6 +15,7 @@
     <url type="faq">https://megascans.zendesk.com/hc</url>
   <launchable type="desktop-id">com.quixel.Bridge.desktop</launchable>
     <releases>
+    <release version="2022.0.6" date="2022-07-06"/>
     <release version="2022.0.4" date="2022-06-09"/>
     <release version="2022.0.3" date="2022-05-10"/>
     <release version="2022.0.2" date="2022-04-15"/>
