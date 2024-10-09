@@ -38,8 +38,8 @@ modules:
       - type: extra-data
         filename: Bridge.AppImage
         url: https://d2shgxa8i058x8.cloudfront.net/bridge/linux/Bridge.AppImage
-        sha256: b6cc4649dbaaa537f72e5bcc692736f5398a4ecd2244ab76eb5e99bbb9c0091b
-        size: 434202813
+        sha256: bde734b268074cce5139ca3e76bee11efd1ca5a66a7a1ca3d84b4e4d8557e729
+        size: 434137464
         x-checker-data:
           type: rotating-url
           url: https://d2shgxa8i058x8.cloudfront.net/bridge/linux/Bridge.AppImage
